@@ -1,5 +1,10 @@
 # atacseq
 
+## processing read sequencing data to bam file:
+
+raw reads have their nextera adapter cut with trimgalore which is a wrap for cutadapt. Then, they are aligned with bwa, and have properly paired reads kept.Afterward, I remove orphan reads, read pairs mapping to different chromosomes, and duplicates. The bams files are then convert to bedpe files which have their position shifted via bedtools; the bam files are also have their position shifted directly into new version of bam files via samtools. The bedpe files from corrected bam files don't have their coordinates shifted via bedtools and awk.
+
+
 
 Figure A: plot of raw total count of each samples. Y axis is sample name, x axis is the total count
 ![](rawtotalcount.jpg)
