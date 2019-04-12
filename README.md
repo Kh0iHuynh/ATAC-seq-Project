@@ -19,3 +19,22 @@ Figure B: scatter matrix plot using car package in R to show the scatter plot of
 ![](normalizedscatterplot.jpg)
 
 The normalized plot shows the colinear relationship between samples which indicates the successful normalization.
+
+## Vplot parameter: 
+
+vplot for hairy gene promoter was made with different parameter to test for the smoothness of kernel density function. We decided to go with bin (40,40) and 40 grid points. 
+
+## Combine all samples by tissue and peak calling:
+
+All samples are then combined by tissues and MACS2 is used to do peak calling. Then, an union bed of all peak was produced. Originally, I tested MAnorm to make the union bed; however, MAnorm is both computing intensive and allows only two samples at one time.Threfore, I have been using the linux script to concatenate, average peak summit based on min and max range of peak summit to avoid incorrect peak merging due to bookended issue (min and max are found using R). 
+
+The peak files from MACS2 are also annotated by HOMER2. The first 800 or so peak on chr3R from union bed file are used to generate vplots and to test for pattern differential analysis.
+
+However, this is where I am currently stuck at. Thre are a couple things I need to make sure that they are perfectly done (gold standar) before pull the trigger on whole genome scan and classification:
+
+1/ The union peak file is merged correctly. I have gone through most peaks but there might still be a few regions that get weird merge.
+2/ testing different methods to analyze patterns beside PCA and manova. I am thinking of adding in Fisher LDA.
+3/ Testing out splitting corrected bam files into different fragment lengths to represent different chromatin accessbility (0 vs 1 vs 2 vs 3 nucleosome).
+4/ Using deseq2 to analyze peak count and also testing out your script+figuring out how to use the data. 
+
+All of thise should be done by mid quater and ground work for model training and classification of feature types should be done by the end of this quarter.
