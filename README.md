@@ -8,7 +8,7 @@ After getting bed files, fragment distribution plots are produced, and we decide
 
 ## fragment counts are normalized between 96 samples (no fatbody, not embryo samples):
 
-After getting the bed files, fragment lengths and counts are calculated for all samples.They are also normalized via weight factor which is equal to count/mean count for each fragment length. Here is where I did wrong. Originally, I normalized the read count by mid point base pair when generated vplot instead of whole genome normalization. However, you have pointed this out and it was fixed. All samples are normalized by whole genome now. 
+After getting the bed files, fragment lengths and counts are calculated for all samples.They are also normalized via weight factor which is equal to mean count/ count for each fragment length. Here is where I did wrong. Originally, I normalized the read count by mid point base pair when generated vplot instead of whole genome normalization. However, you have pointed this out and it was fixed. All samples are normalized by whole genome now. 
 
 Note: I know you will need some qc steps to validate the normalization so I generate these after normalizing by whole genome. These are scatter plot of all read counts per fragment lengths of each sample:
 
