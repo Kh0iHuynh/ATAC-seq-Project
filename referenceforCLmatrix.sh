@@ -21,6 +21,33 @@ awk 'BEGIN{OFS=FS="\t"}{print $1,$2,$2+1}' delete2.txt > delete3.txt
 
 bedtools intersect -v -a delete3.txt -b /dfs5/bio/khoih/overlap.SV.bed > delete4.txt
 
-awk 'BEGIN{OFS=FS="\t"}{print $1,$2}' delete4.txt | sort -k 1,1 -k2,2n > final2.bed
+
+
+#####
+# generate reference file that has chromsome and peak summit for anova steps
+#####
+awk 'BEGIN{OFS=FS="\t"}{print $1,$2}' delete4.txt | sort -k 1,1 -k2,2n > ref.txt
 
 rm delete*.txt
+
+#####
+## generate reference range for CLmatrix.sh
+####
+
+awk 'BEGIN{OFS=FS="\t"}{print $1,$2,$3} delete2.txt > delete5.txt
+bedtools intersect -v -a delete5.txt -b /dfs5/bio/khoih/overlap.SV.bed > delete6.txt
+
+while IFS= read -r line
+do
+  var1=$(echo "$line" | cut -f 2)
+  var2=$(echo "$line" | cut -f 3)
+  var3=$(echo "$line" | cut -f 1)
+  for i in $(seq $var1 $var2); do
+        j=`expr $i + 1`
+        echo "$var3     $i      $j" >> final.bed;
+  done
+done < delete6.txt
+
+
+sort -k 1,1 -k2,2n final.bed > final2.bed
+
