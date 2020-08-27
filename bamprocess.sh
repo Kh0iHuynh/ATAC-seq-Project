@@ -87,4 +87,4 @@ samtools view -h $fqdir/$rawfix.nomtsort.bam | awk -F $'\t' 'BEGIN {OFS = FS}{ i
 #================
 # convert bam to bedpe file
 #================
-bedtools bamtobed -bedpe -mate1 -i $fqdir/$rawfix.nomtsort.bam  | awk -F $'\t' 'BEGIN {OFS = FS}{ if ($9 == "+") {$2 = $2 + 4} else if ($9 == "-") {$3 = $3 - 5} print $0}'  | awk -F $'\t' 'BEGIN {OFS = FS}{ if ($10 == "+") {$5 = $5 + 4} else if ($10 == "-") {$6 = $6 - 5} print $0}'  > $fqdir/$rawfix.bed
+bedtools bamtobed -bedpe -mate1 -i $fqdir/$rawfix.nomtsort.bam  | awk -F $'\t' 'BEGIN {OFS = FS}{ if ($9 == "+") {$2 = $2 + 4} else if ($9 == "-") {$3 = $3 - 5} print $0}'  | awk -F $'\t' 'BEGIN {OFS = FS}{ if ($10 == "+") {$5 = $5 + 4} else if ($10 == "-") {$6 = $6 - 5} print $0}'  > $fqdir/$rawfix.shifted.bed
