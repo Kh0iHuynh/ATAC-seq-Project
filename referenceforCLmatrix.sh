@@ -21,6 +21,6 @@ awk 'BEGIN{OFS=FS="\t"}{print $1,$2,$2+1}' delete2.txt > delete3.txt
 
 bedtools intersect -v -a delete3.txt -b /dfs5/bio/khoih/overlap.SV.bed > delete4.txt
 
-awk 'BEGIN{OFS=FS="\t"}{print $1,$2}' delete4.txt | sort -k 1,1 -k2,2n > final2.txt
+awk 'BEGIN{OFS=FS="\t"}{print $1,$2}' delete4.txt | sort -k 1,1 -k2,2n > final2.bed
 
 rm delete*.txt
