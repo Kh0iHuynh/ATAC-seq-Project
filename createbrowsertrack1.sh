@@ -23,12 +23,3 @@ awk 'BEGIN{OFS="\t"}{print $1,$2,$3,$6,$9}' ../meanc/$rawfix.temp.txt > ../meanc
 paste ../${rawfix}*/temp4.L.txt > ../meanl/$rawfix.temp.txt
 awk 'BEGIN{OFS="\t"}{print $1,$2,$3,$6,$9}' ../meanl/$rawfix.temp.txt > ../meanl/${rawfix}.test.txt
 
-
-########
-### generate bigwig files for browser
-######
-awk 'BEGIN{OFS="\t"}{print $1,$2,$2 + 1,$6}' ../meanc/${rawfix}.test2.txt > ../meanc/${rawfix}.bedgraph.txt
-
-
-sed 's/"//g' ../meanc/${rawfix}.bedgraph.txt | sort -k1,1 -k2,2n - > ../meanc/${rawfix}.bdg
-bedGraphToBigWig ../meanc/${rawfix}.bdg /dfs5/bio/khoih/kent/dm6.len ../meanc/${rawfix}.bw
