@@ -25,4 +25,4 @@ bedtools intersect -sorted -a final2.bed -b $rawfix.test.txt -wa -wb > temp.$raw
 awk 'BEGIN { OFS = "\t"}{print $4,$5,$6,$7,$8,$1,$2,$3}' temp.$rawfix.txt > $rawfix.withweight.txt
 
 
-python final.py -b final2 -f $rawfix
+python CL.py -b final2 -f $rawfix
