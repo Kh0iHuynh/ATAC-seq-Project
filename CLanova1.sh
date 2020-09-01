@@ -21,12 +21,21 @@ genotype=$(echo "$rawfix" | cut -f 2 -d "_")
 tissue=$(echo "$rawfix" | cut -f 3 -d "_")
 replicate=$(echo "$rawfix" | cut -f 4 -d "_")
 
-
+######
+# sort C and L matrices by chromosome and region start
+######
 tail -n +2 ../../withoutte/$rawfix/matrix.C.txt | sort -k1,1 -k2,2n - > $rawfix.tempC.txt
 tail -n +2 ../../withoutte/$rawfix/matrix.L.txt | sort -k1,1 -k2,2n - > $rawfix.tempL.txt
 
+#####
+# append C and L to columns in same files
+#####
 paste -d"\t" $rawfix.tempC.txt $rawfix.tempL.txt > $rawfix.temp.txt
 
+
+######
+# generate file format with chromosome,locus position,C value,L value,genotype,tissue,replicate 
+######
 awk -v geno=$genotype -v tiss=$tissue -v rep=$replicate 'BEGIN{OFS=FS="\t"}{print $1,$2,$3,$6,geno,tiss,rep}' $rawfix.temp.txt > $rawfix.temp2.txt
 
 ######
