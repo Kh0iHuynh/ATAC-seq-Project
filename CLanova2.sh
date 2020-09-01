@@ -8,10 +8,22 @@
 module load bedtools/2.25.0
 module load R/3.4.1
 
-
+#######
+# echo header for CLtable.txt file with tab delimiter
+#######
 echo "chr     pos     C       L       genotype        tissue  replicate" > CLtable.txt
+
+#######
+# concatenated all temp3.txt files from 96 sample to CLtable.txt
+#######
 cat *.temp3.txt >> CLtable.txt
+
+######
+# run anova
+######
 Rscript CLanova.r
+
+
 #####
 # combine all results into 1 result file
 ####
