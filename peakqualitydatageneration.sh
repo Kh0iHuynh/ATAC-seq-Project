@@ -71,3 +71,22 @@ awk '{print $1}' OVpeak.txt > OVpeaks.txt
 awk '{print $1}' EDpeak.txt > EDpeaks.txt
 
 awk '{print $1}' WDpeak.txt > WDpeaks.txt
+
+
+#######
+# echo headers for data inputs for peak manhattan pplots
+#######
+echo  "chr      pos     logp    Fold"  > BRpeak.txt
+echo  "chr      pos     logp    Fold"  > OVpeak.txt
+echo  "chr      pos     logp    Fold"  > EDpeak.txt
+echo  "chr      pos     logp    Fold"  > WDpeak.txt
+
+#######
+# print approriate columns:chromosome,position of peak, logp, fold enrichment from peak files for each tissue
+# the output files are data input for peak manhattan plot
+#######
+awk 'BEGIN{OFS=FS="\t"} {if($8 >=2) print $1,$2 + $10, $8, $7}' ../onlyeu.BR_peaks.narrowPeak >> BRpeak.txt
+
+awk 'BEGIN{OFS=FS="\t"} {if($8 >=2) print $1,$2 + $10,$8, $7}' ../onlyeu.OV_peaks.narrowPeak >> OVpeak.txt
+awk 'BEGIN{OFS=FS="\t"} {if($8 >=2) print $1,$2 + $10,$8 ,$7}' ../onlyeu.ED_peaks.narrowPeak >> EDpeak.txt
+awk 'BEGIN{OFS=FS="\t"} {if($8 >=2) print $1,$2 + $10, $8, $7}' ../onlyeu.WD_peaks.narrowPeak >> WDpeak.txt
