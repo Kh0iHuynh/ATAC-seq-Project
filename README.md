@@ -1,5 +1,13 @@
-# atacseq
+# **ATAC-seq Project:**
 
-after fraggiles1.sh is done. All final2 files are combined by paste with delimiter as tab to combine.txt. Then, mean.r file is run 
+## raw sequence data processing. 
 
-After mean.r is finish, fragfiles2.sh is run.
+The main script is bamprocess.sh. It generate bed files and corrected bam files from fastq 
+
+## Peak calling:
+
+The main script is peakcalling.sh. It calls for regions which have the highest read density compared to background reads density. Within these regions, the highest read density locus is the peak summit.
+
+## Peak merging and averaging:
+
+
