@@ -22,5 +22,20 @@ The main script is peakqualityplot.r. The script will output all of the peak qua
 
 ## Normalization for differences between genotypes and tissues for all samples:
 
+The main scripts are fragfile1.sh, fragfile2.sh, and fragfile3.sh . These are used to calculate for weights for each fragment lengths after removal of SV spanning fragments. If weights are calculated for all fragments, the bedtools intersect command in fragfile1.sh need to be removed. This command is used to remove all SV spanning fragments. 
+
+## C and L matrix calculation:
+
+The main scripts are CLmatrix.sh and CL.py. The CLmatrix.sh is the script that process fragment files and calculate for C and L by locus using the CL.py script. The model for C and L are:
+
+a/ Ci = sum(Wi)
+b/ Li = sum(Wi * FLi )/ sum(Wi)
+
+Ci stands for C value at position i. Wi stands for weight at position i. FLi is the fragment lenght at position i and its weight Wi. 
+
+## C and L matrices statistical test:
+
+The main scripts are CLanova1.sh, CLanova2.sh, CLanova.r
+
 
 
