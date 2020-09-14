@@ -13,21 +13,25 @@ chromosome = []
 peakstart = []
 peakend = []
 summit = []
-#########
+######
 # add new line at the end of file
 # to by pass looping over last line of file
-#########
+######
 new_line = "0 0 0 0\n"
 with open("peak.txt", "a") as a_file:
   a_file.write(new_line)
 
-##############
+######
+# iterating over peak.txt line by line.
+# group all last line into 1 group if the peak summit 
+# in current line is more than 200 bp apart from the peak summit in last line.
+######
 f = open("peak.txt","r")
 for line in f.readlines():
         if last is not None:
                 # fine here
                 diff = int(line.split()[3]) - int(last.split()[3])
-                if abs(diff) < 500:
+                if abs(diff) < 200:
                         peakstart.append(int(last.split()[1]))
                         peakend.append(int(last.split()[2]))
                         summit.append(int(last.split()[3]))
