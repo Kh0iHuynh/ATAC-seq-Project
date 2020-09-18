@@ -106,9 +106,52 @@ tsswing <- ggplot(wing2, aes(x=wing2$DistancetoTSS, y=wing2$PeakScore)) + geom_p
 # for peaks with -log(pvalue) >=2 and -log(pvalue) >=3 
 ######
 
-log102venn.plot <- draw.quad.venn(area1 = 17162, area2 = 13107, area3 = 13803, area4 = 13811, n12 = 3023, n13 = 3138, n14 = 3216, n23 = 7937, n24 = 4029,n34 = 4043, n123 = 2568 , n124 = 2045, n134 = 2065, n234 = 3361, n1234 = 1856, category = c("Brain", "Wing", "Eye","Ovary"),lty = "solid",fill = c("skyblue", "pink1","mediumorchid", "orange"), main = "Overlapped Peaks Between Tissues")
+######
+# hardcode data for venn diagram log2
+# these values are calculated by Homer venn diagram option
+######
+v1234 = 4780 #BROVEDWD
+v123 = 1096  #BRWDED
+v234 = 2233  #WDEDOV
+v134 = 171  #BREDOV
+v124 = 144  #BRWDOV
+v12 = 220  #BRWD
+v23 = 5382  #WDED
+v24 = 295 # WDOV
+v13 = 517 #BRED
+v34 = 449 #EDOV
+v14 = 1537 #BROV
+v1 = 16753 #BR
+v2 = 3149 #WD
+v3 = 3755 #ED
+v4 = 8375 #OV
 
-log103venn.plot <- draw.quad.venn(area1 = 16887, area2 = 13017, area3 = 13698, area4 = 13609, n12 = 3013, n13 = 3117, n14 = 3186, n23 = 7889, n24 = 4008,n34 = 4023, n123 = 2559, n124 = 2038, n134 = 2057, n234 = 3350, n1234 = 1850, category = c("Brain", "Wing", "Eye","Ovary"),lty = "solid",fill = c("skyblue", "pink1","mediumorchid", "orange"))
+
+######
+# hardcode data for venn diagram log3
+# these values are calculated by Homer venn diagram option
+######
+d1234 = 4750 #BROVEDWD
+d123 = 1079  #BRWDED
+d234 = 2211  #WDEDOV
+d134 = 168  #BREDOV
+d124 = 145  #BRWDOV
+d12 = 210  #BRWD
+d23 = 5346  #WDED
+d24 = 281 # WDOV
+d13 = 497 #BRED
+d34 = 444 #EDOV
+d14 = 1468 #BROV
+d1 = 16078 #BR
+d2 = 3000 #WD
+d3 = 3577 #ED
+d4 = 7991 #OV
+print("pass")
+
+log102venn.plot <- draw.quad.venn(area1 = v1+v12+v1234+v1234+v124+v13+v134+v14, area2 = v2+v12+v23+v123+v1234+v234+v24+v124, area3 = v3+v34+v23+v234+v123+v1234+v134+v13, area4 = v4+v34+v234+v24+v1234+v124+v134+v14, n12 = v12+v123+v1234+v124, n13 = v13 + v134 +v1234+v123, n14 = v14 + v134 +v124+ v1234, n23 = v23 + v123 + v1234 + v234, n24 = v24 + v234 + v1234 + v124,n34 = v34 + v234 + v1234 + v134, n123 = v123 + v1234 , n124 = v124 + v1234, n134 = v134 + v1234, n234 = v234 + v1234, n1234 = v1234, category = c("Brain", "Wing", "Eye","Ovary"),lty = "solid",fill = c("skyblue", "pink1","mediumorchid", "orange"), main = "Overlapped Peaks Between Tissues")
+
+log103venn.plot <- draw.quad.venn(area1 = d1+d12+d1234+d1234+d124+d13+d134+d14, area2 = d2+d12+d23+d123+d1234+d234+d24+d124, area3 = d3+d34+d23+d234+d123+d1234+d134+d13, area4 = d4+d34+d234+d24+d1234+d124+d134+d14, n12 = d12+d123+d1234+d124, n13 = d13 + d134 +d1234+d123, n14 = d14 + d134 +d124+ d1234, n23 = d23 + d123 + d1234 + d234, n24 = d24 + d234 + d1234 + d124,n34 = d34 + d234 + d1234 + d134, n123 = d123 + d1234 , n124 = d124 + d1234, n134 = d134 + d1234, n234 = d234 + d1234, n1234 = d1234, category = c("Brain", "Wing", "Eye","Ovary"),lty = "solid",fill = c("skyblue", "pink1","mediumorchid", "orange"), main = "Overlapped Peaks Between Tissues")
+
 
 
 representative <- readJPEG('representive_region_chr3L_8,441,177_8,790,676.jpg')
