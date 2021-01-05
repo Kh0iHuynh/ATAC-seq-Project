@@ -23,4 +23,4 @@ awk 'FNR==NR{a[$1] =$1;b[$2]= $2;next}($1 in a) && ($2 in b){ print $0;}' delete
 
 
 
-python coverageindex.py
+python Coverageindex.py
