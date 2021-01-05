@@ -18,7 +18,7 @@ for lines3 in Lines3:
         min = int(lines3.split()[1]) - 250
         for lines2 in Lines2:
                 if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
-                        f = open('scg.txt', 'a')
+                        f = open('scg2.txt', 'a')
                         print(lines3.split()[0],lines3.split()[1],lines2.split()[1],lines3.split()[2],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
                         f.close()
 
@@ -44,7 +44,7 @@ for lines3 in Lines3:
         min = int(lines3.split()[1]) - 250
         for lines2 in Lines2:
                 if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
-                        f = open('sci.txt', 'a')
+                        f = open('sci2.txt', 'a')
                         print(lines3.split()[0],lines3.split()[1],lines2.split()[1],lines3.split()[2],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
                         f.close()
 
@@ -71,7 +71,7 @@ for lines3 in Lines3:
         min = int(lines3.split()[1]) - 250
         for lines2 in Lines2:
                 if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
-                        f = open('svcg.txt', 'a')
+                        f = open('svcg2.txt', 'a')
                         print(lines3.split()[0],lines3.split()[1],lines2.split()[1],lines3.split()[2],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
                         f.close()
 
@@ -97,7 +97,7 @@ for lines3 in Lines3:
         min = int(lines3.split()[1]) - 250
         for lines2 in Lines2:
                 if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
-                        f = open('svci.txt', 'a')
+                        f = open('svci2.txt', 'a')
                         print(lines3.split()[0],lines3.split()[1],lines2.split()[1],lines3.split()[2],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
                         f.close()
 
