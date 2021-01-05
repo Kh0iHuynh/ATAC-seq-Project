@@ -17,4 +17,14 @@ awk '{print $1,$2+1}' ci.txt > covint.txt
 python cov.py
 
 
-bash coverageindex.sh
+bash Coverageindex.sh
+
+
+awk '{print $1,$2+1}' cg2.txt > lengeno.txt
+
+awk '{print $1,$2+1}' ci2.txt > lenint.txt
+
+python len.py
+
+
+bash Lengthindex.sh
