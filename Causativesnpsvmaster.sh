@@ -19,6 +19,7 @@ python cov.py
 
 bash Coverageindex.sh
 
+python Coverageindex2.py
 
 awk '{print $1,$2+1}' cg2.txt > lengeno.txt
 
@@ -28,3 +29,4 @@ python len.py
 
 
 bash Lengthindex.sh
+python Lengthindex2.py
