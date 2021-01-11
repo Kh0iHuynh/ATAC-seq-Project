@@ -6,7 +6,7 @@
 #$ -t 1-1
 #$ -ckpt blcr
 
-
+bash extractsnpandsv.sh
 awk '{print $1,$2+1}' cg.txt > covgeno.txt
 
 awk '{print $1,$2+1}' ci.txt > covint.txt
