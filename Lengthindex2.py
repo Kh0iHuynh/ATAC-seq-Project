@@ -19,7 +19,7 @@ for lines3 in Lines3:
         min = int(lines3.split()[1]) - 250
         for lines2 in Lines2:
                 if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
-                        f = open('slg2.txt', 'a')
+                        f = open('slg.txt', 'a')
                         print(lines3.split()[0],lines3.split()[1],lines2.split()[1],lines3.split()[3],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
                         f.close()
 
@@ -43,7 +43,7 @@ for lines3 in Lines3:
         min = int(lines3.split()[1]) - 250
         for lines2 in Lines2:
                 if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
-                        f = open('sli2.txt', 'a')
+                        f = open('sli.txt', 'a')
                         print(lines3.split()[0],lines3.split()[1],lines2.split()[1],lines3.split()[3],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
                         f.close()
 
@@ -67,7 +67,7 @@ for lines3 in Lines3:
         min = int(lines3.split()[1]) - 250
         for lines2 in Lines2:
                 if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
-                        f = open('svlg2.txt', 'a')
+                        f = open('svlg.txt', 'a')
                         print(lines3.split()[0],lines3.split()[1],lines2.split()[1],lines3.split()[3],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
                         f.close()
 
@@ -92,6 +92,27 @@ for lines3 in Lines3:
         min = int(lines3.split()[1]) - 250
         for lines2 in Lines2:
                 if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
-                        f = open('svli2.txt', 'a')
+                        f = open('svli.txt', 'a')
                         print(lines3.split()[0],lines3.split()[1],lines2.split()[1],lines3.split()[3],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
                         f.close()
+
+
+
+
+file2 = open('snp.txt', 'r')
+Lines2 = file2.readlines()
+
+##peak file that has snp,SV close
+file3 = open('notesnpcovint.txt', 'r')
+Lines3 = file3.readlines()
+
+
+for lines3 in Lines3:
+        max = int(lines3.split()[1]) + 250
+        min = int(lines3.split()[1]) - 250
+        for lines2 in Lines2:
+                if lines2.split()[0] == lines3.split()[0] and int(lines2.split()[1]) < max and int(lines2.split()[1]) > min and lines2.split()[2] == lines3.split()[4]:
+                        f = open('temp2.txt', 'a')
+                        print(lines3.split()[0],lines3.split()[1],lines3.split()[2],lines3.split()[4],lines3.split()[5],lines3.split()[6],lines2.split()[3],sep ="\t" ,file=f)
+                        f.close()
+
