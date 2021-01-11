@@ -88,4 +88,3 @@ for lines3 in Lines3:
                         f = open('temp4.txt', 'a')
                         print(lines2.split()[0],lines2.split()[1],lines2.split()[2],lines2.split()[3],lines2.split()[4],sep ="\t" ,file=f)
                         f.close()
-
