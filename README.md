@@ -2,7 +2,14 @@
 
 ## Raw sequence data processing. 
 
-The main script is bamprocess.sh. It generate bed files and corrected bam files from fastq 
+The main script is bamprocess.sh used for:
+ -Trimming of the adapter from raw data using Trimgalore-0.4.5
+ -Aligning trimmed data to reference genome (D.melanogaster release 6) using bwa 0.7.8
+ -Removing all unmapped reads,reads with unmapped mates, and non-primary reads or any improperly aligned reads using samtools 1.3
+ -Removing duplicated reads using picard 2.18.27
+ -Keeping only reads from five major chromosome arms :X,2R,2L,3R,and 3L using samtools 1.3
+ -Shifting processed reads by +4bp, and -5bp for plus strand and minus strand to produce corrected bam files
+ -Converting corrected bam files to bedpe format (bed files) using bedtools 2.25.0
 
 ## Peak calling:
 
