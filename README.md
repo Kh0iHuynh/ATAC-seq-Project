@@ -46,18 +46,15 @@
 + The calculations for coverage and fragment length are done using scripts named CLmatrix.sh and CL.py.
 + Coverage are then averaged over replicates (within tissues and genotypes), and are provided as UCSC Genome browser tracks. The tracks and their hubs are described in browsertrack.txt)
 
-## C and L matrix calculation:
+## Coverage statistical test:
 
-The main scripts are CLmatrix.sh and CL.py. The CLmatrix.sh is the script that process fragment files and calculate for C and L by locus using the CL.py script. The model for C and L are:
++ Two ANOVA statistical tests are carried out in R using CLanova.r at peaks to identify those that differ among genotypes, tissues, or their interaction for weighted log transformed Coverage (lnC = ln(C+5)) after loci with a weighted average coverage < 50 were dropped as:
+  - lnC or L ~ geno + tissue + geno:tissue
++ False Discovery Rates associated with the p-values from the genome scans were calculated using the p.adjust function in R. Tests with an FDR adjusted p-value < 0.005 are considered significant.
++ QQ plots and Manhattan plots were generated for the ANOVA results as described above using CLanova2.sh and CLanovaresultplot.r.
++ We define hits unique to the SV-uncorrected dataset as false positives, and estimate the rate of such false positives in experiments that do not correct for hidden SVs.  Results are also represented as Venn diagrams using the VennDiagram package in R. 
 
-a/ Ci = sum(Wi)
-b/ Li = sum(Wi * FLi )/ sum(Wi)
 
-Ci stands for C value at position i. Wi stands for weight at position i. FLi is the fragment lenght at position i and its weight Wi. 
-
-## C and L matrices statistical test:
-
-The main scripts are CLanova1.sh, CLanova2.sh, CLanova.r
 
 
 
