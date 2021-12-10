@@ -2,7 +2,7 @@
 
 ## Raw sequence data processing. 
 
-+ The main script is bamprocess.sh used for:
++ The main script is bamprocess.sh. It is used for:
   - Trimming of the adapter from raw data using Trimgalore-0.4.5
   - Aligning trimmed data to reference genome (D.melanogaster release 6) using bwa 0.7.8
   - Removing all unmapped reads,reads with unmapped mates, and non-primary reads or any improperly aligned reads using samtools 1.3
@@ -13,11 +13,15 @@
 
 ## Peak calling:
 
-The main script is peakcalling.sh. It calls for regions which have the highest read density compared to background reads density. Within these regions, the highest read density locus is the peak summit.
-
++ The main script is peakcalling.sh. It is used for:
+  - Merging of all corrected bam files by tissues across replciates and genotypes
+  - Performing peak calling using MACSs. Peaks are regions which have the highest read density compared to background reads density. Within these regions, the highest read density locus is the peak summit. The result are four ENCODE NarrowPeak format files, one for each tissue. These are tissue peak files. 
+  
 ## Peak merging and averaging:
 
-The main script is averagepeak.sh. This script takes in all peak files called for each tissues (4 tissues total). Then, it process the script accodring to the averaging method in the paper. 
++ The main script is Unionpeak.sh and Union.py-a custom python script. They are used for:
+  - Concatenating tissue peak files, sorting by chromosome and peak summit with
+  - Grouping and averaging peak summit locations that were within 200 bp of one another, but greater than 200bp from nearest adjacent peak summit using Union.py 
 
 ## Euchromatin peak filter and peak annotation: 
 
