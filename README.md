@@ -40,9 +40,11 @@
   - The first peak enrichment profile that we used is the genome peak enrichment distribution profile. The second peak enrichment profile that we used is peak enrichment distribution in relation to distance to TSS. The last peak enrichment profile is peak enrichment distribution in relation to annotated feature types of the peaks. These data are generated using peakqualitydatageneration.sh.
 + Lastly, Manhattan plots are also generated for peak enrichment and the peak p-value to ensure peaks are not spatially clustered. The script to generate these Manhattan plots are peakquality.r and peakqualitydatageneration.sh.
 
-## Normalization for differences between genotypes and tissues for all samples:
+## Normalization for differences between tissues and genotypes:
 
-The main scripts are fragfile1.sh, fragfile2.sh, and fragfile3.sh . These are used to calculate for weights for each fragment lengths after removal of SV spanning fragments. If weights are calculated for all fragments, the bedtools intersect command in fragfile1.sh need to be removed. This command is used to remove all SV spanning fragments. 
++ Weight is calculated using script fragfile1.sh, fragfile2.sh, and fragfile3.sh (if weights are calculated for fragments without SV correction, the bedtools intersect command in fragfile1.sh need to be removed). The calculation of weights are described in the paper. 
++ The calculations for coverage and fragment length are done using scripts named CLmatrix.sh and CL.py.
++ Coverage are then averaged over replicates (within tissues and genotypes), and are provided as UCSC Genome browser tracks. The tracks and their hubs are described in browsertrack.txt)
 
 ## C and L matrix calculation:
 
