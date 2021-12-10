@@ -54,6 +54,13 @@
 + QQ plots and Manhattan plots were generated for the ANOVA results as described above using CLanova2.sh and CLanovaresultplot.r.
 + We define hits unique to the SV-uncorrected dataset as false positives, and estimate the rate of such false positives in experiments that do not correct for hidden SVs.  Results are also represented as Venn diagrams using the VennDiagram package in R. 
 
+## Causative SNP and SV identification by random effect model: 
+
++ For peaks with significant genotype, or genotype:tissue interaction effects (for either coverage and fragment length) we attempted to identify markers - either SNPs within 250bp or SVs within 800bp of the peak - that could potentially explain the significance. We tested significance using the following random effects model in R::lme4:
+  - lnC ~ (1|marker) + (1 | marker:tis) + (1|tis) + (1|geno:marker) + (1|tis:geno:marker) 
++ SNPs and SVs are identified using Causativesnpsvmaster.sh, and tests carried out using lmebygroup.r.  
++ We estimate the proportion of variance explained by a marker as varm/[varm+ varg:m] or marker:tissue as varm:t/[varm:t + varg:m:t] respectively.
++ We examine the distributions of these marker tests and maintain a list of polymorphisms explaining 100% of the variation associated with peaks. We finally annotate SNPs explaining 100% variance using SnpEff [(55)] [snpEff.jar dmel_r6.31 snp.vcf.txt  > annotatedsnp.txt] and HOMER.
 
 
 
