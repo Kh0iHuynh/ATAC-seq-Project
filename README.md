@@ -22,10 +22,15 @@
 + The main script is Unionpeak.sh and Union.py-a custom python script. They are used for:
   - Concatenating tissue peak files, sorting by chromosome and peak summit with
   - Grouping and averaging peak summit locations that were within 200 bp of one another, but greater than 200bp from nearest adjacent peak summit using Union.py 
+  - The final merged and averaged peak file is named all tissue
 
 ## Euchromatin peak filter and peak annotation: 
 
-The main script is peakannotation.sh. It is used to annotated the peaks that are filtered using the euchromatin boundaries described in the paper. 
++ After merging and averaging, peaks are filtered by euchromatin region shown in Supplementary Table 1 in the paper using awk. 
++ All tissue peaks are annotated using peakannotation.sh:
+  - Peak annotation is done using HOMER
+  - After annotation of peaks, the percentages of peaks falling into each feature types by tissue are given in Supplementary Table 2 in the paper. 
++ Randomly assigned one million peak locations are generated using genmomeartificialpeak.py to provide random distribution of percentages of peaks by feature types  
 
 ## Peak quality control plot:
 
