@@ -3,7 +3,7 @@
 ## Raw sequence data processing. 
 
 + The main script is bamprocess.sh. It is used for:
-  - Trimming of the adapter from raw data using Trimgalore-0.4.5
+  - Trimming of the adapter from raw data (BioProject: PRJNA761571) using Trimgalore-0.4.5
   - Aligning trimmed data to reference genome (D.melanogaster release 6) using bwa 0.7.8
   - Removing all unmapped reads,reads with unmapped mates, and non-primary reads or any improperly aligned reads using samtools 1.3
   - Removing duplicated reads using picard 2.18.27
