@@ -51,7 +51,7 @@
 + Two ANOVA statistical tests are carried out in R using CLanova.r at peaks to identify those that differ among genotypes, tissues, or their interaction for weighted log transformed Coverage (lnC = ln(C+5)) after loci with a weighted average coverage < 50 were dropped as:
   - lnC ~ geno + tissue + geno:tissue
 + False Discovery Rates associated with the p-values from the genome scans were calculated using the p.adjust function in R. Tests with an FDR adjusted p-value < 0.005 are considered significant.
-+ QQ plots and Manhattan plots were generated for the ANOVA results as described above using CLanova2.sh and CLanovaresultplot.r.
++ QQ plots and Manhattan plots were generated for the ANOVA results as described above using CLanova1.sh,CLanova2.sh and CLanovaresultplot.r.
 + We define hits unique to the SV-uncorrected dataset as false positives, and estimate the rate of such false positives in experiments that do not correct for hidden SVs.  Results are also represented as Venn diagrams using the VennDiagram package in R. 
 
 ## Causative SNP and SV identification by random effect model: 
