@@ -43,8 +43,8 @@
 ## Normalization for differences between tissues and genotypes:
 
 + Weight is calculated using script fragfile1.sh, fragfile2.sh, and fragfile3.sh (if weights are calculated for fragments without SV correction, the bedtools intersect command in fragfile1.sh need to be removed). The calculation of weights are described in the paper. 
-+ The calculations for coverage and fragment length are done using scripts named CLmatrix.sh and CL.py.
-+ Coverage are then averaged over replicates (within tissues and genotypes), and are provided as UCSC Genome browser tracks. The tracks and their hubs are described in browsertrack.txt)
++ The calculations for coverage is done using scripts named CLmatrix.sh and CL.py. The reference file used in coverage calculation is generated with referenceforCLmaxtrix.sh
++ Coverage are then averaged over replicates (within tissues and genotypes), and are provided as UCSC Genome browser tracks. The scripts used to generate these tracks are createbrowsertrack1.sh,createbrowsertrack2.sh, and createbrowsertrack3.sh.
 
 ## Coverage statistical test:
 
@@ -53,9 +53,10 @@
 + False Discovery Rates associated with the p-values from the genome scans were calculated using the p.adjust function in R. Tests with an FDR adjusted p-value < 0.005 are considered significant.
 + QQ plots and Manhattan plots were generated for the ANOVA results as described above using CLanova1.sh,CLanova2.sh and CLanovaresultplot.r.
 + We define hits unique to the SV-uncorrected dataset as false positives, and estimate the rate of such false positives in experiments that do not correct for hidden SVs.  Results are also represented as Venn diagrams using the VennDiagram package in R. 
++ Read simulations are done to illustrate SV effect on mapping with SVsimulation.sh
 
 ## Causative SNP and SV identification by random effect model: 
-
++ SNPs and SVs are extracted and converted to reference file from their respective VCF files using extractsnpandsv.sh
 + For peaks with significant genotype, or genotype:tissue interaction effects (for either coverage and fragment length) we attempted to identify markers - either SNPs within 250bp or SVs within 800bp of the peak - that could potentially explain the significance. We tested significance using the following random effects model in R::lme4:
   - lnC ~ (1|marker) + (1 | marker:tis) + (1|tis) + (1|geno:marker) + (1|tis:geno:marker) 
 + SNPs and SVs are identified using Causativesnpsvmaster.sh, and tests carried out using lmebygroup.r.  
