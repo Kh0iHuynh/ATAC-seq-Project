@@ -15,7 +15,7 @@
 
 + The main script is peakcalling.sh. It is used for:
   - Merging of all corrected bam files by tissues across replciates and genotypes
-  - Performing peak calling using MACSs. Peaks are regions which have the highest read density compared to background reads density. Within these regions, the highest read density locus is the peak summit. The result are four ENCODE NarrowPeak format files, one for each tissue. These are tissue peak files. 
+  - Performing peak calling using MACSs. Peaks are regions which have the highest read density compared to background reads density. Within these regions, the highest read density locus is the peak summit. The result are four ENCODE NarrowPeak format files, one for each tissue. These are tissue NarrowPeak files . 
   
 ## Peak merging and averaging:
 
