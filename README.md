@@ -62,7 +62,8 @@
 + SNPs and SVs are identified using Causativesnpsvmaster.sh, and tests carried out using lmebygroup.r.  
 + We estimate the proportion of variance explained by a marker as varm/[varm+ varg:m] or marker:tissue as varm:t/[varm:t + varg:m:t] respectively.
 + We examine the distributions of these marker tests and maintain a list of polymorphisms explaining 100% of the variation associated with peaks. We finally annotate SNPs explaining 100% variance using SnpEff [(55)] [snpEff.jar dmel_r6.31 snp.vcf.txt  > annotatedsnp.txt] and HOMER.
-
+## UCSC genome browser tracks generation:
++ UCSC_genome_browser_track_generation.sh is used to generate bw tracks for UCSC genome browser
 ## Script dependency used by all scripts in the paper. Indented are scripts used by their related main script:
 
 + CLmatrix.sh
@@ -96,7 +97,7 @@
 + peakqualitydatageneration.sh
 + peakqualityplot.r
 + referenceforCLmatrix.sh
-
++ UCSC_genome_browser_track_generation.sh
 
 
 
