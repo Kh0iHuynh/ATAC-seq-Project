@@ -70,12 +70,12 @@
 + We estimate the proportion of variance explained by a marker as varm/[varm+ varg:m] or marker:tissue as varm:t/[varm:t + varg:m:t] respectively.
 + We examine the distributions of these marker tests and maintain a list of polymorphisms explaining 100% of the variation associated with peaks. We finally annotate SNPs explaining 100% variance using SnpEff [(55)] [snpEff.jar dmel_r6.31 snp.vcf.txt  > annotatedsnp.txt] and HOMER.
 + Data tables for coverage at peaks for each marker position can be found addlocation and are as follows:
- - Peaks near SNP positions:
-   - Significant by genotype: scg.txt
-   - Significant by genotype:tissue interaction: sci.txt
- - Peaks near SV positions:
-   - Significant by genotype: svcg.txt
-   - Significant by genotype:tissue interaction: svci.txt
+  - Peaks near SNP positions:
+    - Significant by genotype: scg.txt
+    - Significant by genotype:tissue interaction: sci.txt
+  - Peaks near SV positions:
+    - Significant by genotype: svcg.txt
+    - Significant by genotype:tissue interaction: svci.txt
 ## UCSC genome browser tracks generation:
 + UCSC_genome_browser_track_generation.sh is used to generate bw tracks for UCSC genome browser
 
