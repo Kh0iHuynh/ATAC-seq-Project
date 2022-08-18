@@ -16,7 +16,7 @@
 + The main script is peakcalling.sh. It is used for:
   - Merging of all corrected bam files by tissues across replciates and genotypes
   - Performing peak calling using MACSs. Peaks are regions which have the highest read density compared to background reads density. Within these regions, the highest read density locus is the peak summit. The result are four ENCODE NarrowPeak format files, one for each tissue. These are tissue NarrowPeak files . 
-+ Peak files for each tissue can be find addlocation, and are:
++ Peak files for each tissue can be find https://wfitch.bio.uci.edu/~tdlong/sandvox/publications.html, and are:
   - justbampe.BR_peaks.narrowPeak
   - justbampe.OV_peaks.narrowPeak
   - justbampe.ED_peaks.narrowPeak
@@ -28,7 +28,7 @@
   - Concatenating tissue peak files, sorting by chromosome and peak summit with
   - Grouping and averaging peak summit locations that were within 200 bp of one another, but greater than 200bp from nearest adjacent peak summit using Union.py 
   - The final merged and averaged peak file is named all tissue
-+ The final merged and averaged peak file can be find addlocation, and is named alltissue.narrowPeak
++ The final merged and averaged peak file can be find https://wfitch.bio.uci.edu/~tdlong/sandvox/publications.html, and is named alltissue.narrowPeak
 
 ## Euchromatin peak filter and peak annotation: 
 
